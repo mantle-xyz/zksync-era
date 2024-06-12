@@ -1,5 +1,57 @@
 # Changelog
 
+## [25.0.0](https://github.com/matter-labs/zksync-era/compare/core-v24.7.0...core-v25.0.0) (2024-06-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* updated boojum and nightly rust compiler ([#2126](https://github.com/matter-labs/zksync-era/issues/2126))
+
+### Features
+
+* Add metrics for transaction execution result in state keeper ([#2021](https://github.com/matter-labs/zksync-era/issues/2021)) ([dde0fc4](https://github.com/matter-labs/zksync-era/commit/dde0fc4b469474525fd5e4fd1594c3710d6d91f5))
+* **api:** Rework zks_getProtocolVersion ([#2146](https://github.com/matter-labs/zksync-era/issues/2146)) ([800b8f4](https://github.com/matter-labs/zksync-era/commit/800b8f456282685e81d3423ba3e27d017db2f183))
+* **en:** Allow recovery from specific snapshot ([#2137](https://github.com/matter-labs/zksync-era/issues/2137)) ([ac61fed](https://github.com/matter-labs/zksync-era/commit/ac61fedb5756ed700e35f231a364b9c933423ab8))
+* **merkle-tree:** Rework tree rollback ([#2207](https://github.com/matter-labs/zksync-era/issues/2207)) ([c3b9c38](https://github.com/matter-labs/zksync-era/commit/c3b9c38ca07f01e6f7b2d7e631b2b811cacecf3a))
+* **node-framework:** Add Main Node Client layer ([#2132](https://github.com/matter-labs/zksync-era/issues/2132)) ([927d842](https://github.com/matter-labs/zksync-era/commit/927d8427e05b6d1a3aa9a63ee8e0db4fb1b82094))
+* **node:** Move some stuff around ([#2151](https://github.com/matter-labs/zksync-era/issues/2151)) ([bad5a6c](https://github.com/matter-labs/zksync-era/commit/bad5a6c0ec2e166235418a2796b6ccf6f8b3b05f))
+* **object-store:** Allow caching object store objects locally ([#2153](https://github.com/matter-labs/zksync-era/issues/2153)) ([6c6e65c](https://github.com/matter-labs/zksync-era/commit/6c6e65ce646bcb4ed9ba8b2dd6be676bb6e66324))
+* **proof_data_handler:** add new endpoints to the TEE prover interface API ([#1993](https://github.com/matter-labs/zksync-era/issues/1993)) ([eca98cc](https://github.com/matter-labs/zksync-era/commit/eca98cceeb74a979040279caaf1d05d1fdf1b90c))
+* **prover:** Add file based config for fri prover gateway ([#2150](https://github.com/matter-labs/zksync-era/issues/2150)) ([81ffc6a](https://github.com/matter-labs/zksync-era/commit/81ffc6a753fb72747c01ddc8a37211bf6a8a1a27))
+* **state-keeper:** More state keeper metrics ([#2224](https://github.com/matter-labs/zksync-era/issues/2224)) ([1e48cd9](https://github.com/matter-labs/zksync-era/commit/1e48cd99a0e5ea8bedff91135938dbbb70141d43))
+* **sync-layer:** adapt MiniMerkleTree to manage priority queue ([#2068](https://github.com/matter-labs/zksync-era/issues/2068)) ([3e72364](https://github.com/matter-labs/zksync-era/commit/3e7236494e346324fe1254038632ee005e0083e5))
+* **toolbox:** add zk_toolbox ci ([#1985](https://github.com/matter-labs/zksync-era/issues/1985)) ([4ab4922](https://github.com/matter-labs/zksync-era/commit/4ab492201a1654a254c0b14a382a2cb67e3cb9e5))
+* updated boojum and nightly rust compiler ([#2126](https://github.com/matter-labs/zksync-era/issues/2126)) ([9e39f13](https://github.com/matter-labs/zksync-era/commit/9e39f13c29788e66645ea57f623555c4b36b8aff))
+* **vm-runner:** add basic metrics ([#2203](https://github.com/matter-labs/zksync-era/issues/2203)) ([dd154f3](https://github.com/matter-labs/zksync-era/commit/dd154f388c23ff67068a1053fec878e80ba9bd17))
+* **vm-runner:** shadow protective reads using VM runner ([#2017](https://github.com/matter-labs/zksync-era/issues/2017)) ([1402dd0](https://github.com/matter-labs/zksync-era/commit/1402dd054e3248de55bcc6899bb58a2cfe900473))
+
+
+### Bug Fixes
+
+* **api:** Fix getting pending block ([#2186](https://github.com/matter-labs/zksync-era/issues/2186)) ([93315ba](https://github.com/matter-labs/zksync-era/commit/93315ba95c54bd0730c964998bfc0c64080b3c04))
+* **api:** Fix transaction methods for pruned transactions ([#2168](https://github.com/matter-labs/zksync-era/issues/2168)) ([00c4cca](https://github.com/matter-labs/zksync-era/commit/00c4cca1635e6cd17bbc74e7841f47ead7f8e445))
+* **config:** Fix object store ([#2183](https://github.com/matter-labs/zksync-era/issues/2183)) ([551cdc2](https://github.com/matter-labs/zksync-era/commit/551cdc2da38dbd2ca1f07e9a49f9f2745f21556a))
+* **config:** Split object stores ([#2187](https://github.com/matter-labs/zksync-era/issues/2187)) ([9bcdabc](https://github.com/matter-labs/zksync-era/commit/9bcdabcaa8462ae19da1688052a7a78fa4108298))
+* **db:** Optimize `get_l2_blocks_to_execute_for_l1_batch` ([#2199](https://github.com/matter-labs/zksync-era/issues/2199)) ([06ec5f3](https://github.com/matter-labs/zksync-era/commit/06ec5f3e6bb66025a3ec1e5b4d314c7ff1e116c7))
+* **en:** Fix reorg detection in presence of tree data fetcher ([#2197](https://github.com/matter-labs/zksync-era/issues/2197)) ([20da566](https://github.com/matter-labs/zksync-era/commit/20da5668a42a11cc0ea07f9d1a5d5c39e32ce3b4))
+* **en:** Fix transient error detection in consistency checker ([#2140](https://github.com/matter-labs/zksync-era/issues/2140)) ([38fdfe0](https://github.com/matter-labs/zksync-era/commit/38fdfe083f61f5aad11b5a0efb41215c674f3186))
+* **en:** Remove L1 client health check ([#2136](https://github.com/matter-labs/zksync-era/issues/2136)) ([49198f6](https://github.com/matter-labs/zksync-era/commit/49198f695a93d24a5e2d37a24b2c5e1b6c70b9c5))
+* **eth-sender:** Don't resend already sent transactions in the same block ([#2208](https://github.com/matter-labs/zksync-era/issues/2208)) ([3538e9c](https://github.com/matter-labs/zksync-era/commit/3538e9c346ef7bacf62fd76874d41548a4be46ea))
+* **eth-sender:** etter error handling in eth-sender ([#2163](https://github.com/matter-labs/zksync-era/issues/2163)) ([0cad504](https://github.com/matter-labs/zksync-era/commit/0cad504b1c40399a24b604c3454ae4ab98550ad6))
+* Treat 502s and 503s as transient for GCS OS ([#2202](https://github.com/matter-labs/zksync-era/issues/2202)) ([0a12c52](https://github.com/matter-labs/zksync-era/commit/0a12c5224b0b6b6d937311e6d6d81c26b03b1d9d))
+* **vm-runner:** add config value for the first processed batch ([#2158](https://github.com/matter-labs/zksync-era/issues/2158)) ([f666717](https://github.com/matter-labs/zksync-era/commit/f666717e01beb90ff878d1cdf060284b27faf680))
+
+
+### Performance Improvements
+
+* **en:** Parallelize persistence and chunk processing during tree recovery ([#2050](https://github.com/matter-labs/zksync-era/issues/2050)) ([b08a667](https://github.com/matter-labs/zksync-era/commit/b08a667c819f8b3d222c237fc4447be6b75d334e))
+* **pruning:** Use more efficient query to delete past storage logs ([#2179](https://github.com/matter-labs/zksync-era/issues/2179)) ([4c18755](https://github.com/matter-labs/zksync-era/commit/4c18755876a42ee81840cadb365b3040194d0ae3))
+
+
+### Reverts
+
+* **pruning:** Revert pruning query ([#2220](https://github.com/matter-labs/zksync-era/issues/2220)) ([8427cdd](https://github.com/matter-labs/zksync-era/commit/8427cddcbd5ba13388e5b96fb988128f8dabe0f4))
+
 ## [24.7.0](https://github.com/matter-labs/zksync-era/compare/core-v24.6.0...core-v24.7.0) (2024-06-03)
 
 
