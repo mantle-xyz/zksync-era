@@ -95,7 +95,7 @@ const deployTestTokens = async (options?: DeployTestTokensOptions) => {
 // Deploys and verifies L1 contracts and initializes governance
 const initBridgehubStateTransition = async () => {
     await announced('Deploying L1 contracts', contract.deployL1());
-    await announced('Verifying L1 contracts', contract.verifyL1Contracts());
+    // await announced('Verifying L1 contracts', contract.verifyL1Contracts());
     await announced('Initializing governance', contract.initializeGovernance());
     await announced('Reloading env', env.reload());
 };
@@ -166,6 +166,7 @@ export const initDevCmdAction = async ({
         await deployVerifier();
     }
     if (!skipTestTokenDeployment) {
+        testTokenOptions = { envFile: process.env.CHAIN_ETH_NETWORK! };
         await deployTestTokens(testTokenOptions);
     }
     await initBridgehubStateTransition();
