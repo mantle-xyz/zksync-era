@@ -1,0 +1,26 @@
+[
+    {
+        "name": "DAI",
+        "symbol": "DAI",
+        "decimals": 18,
+        "address": "0xECf4177a37bABD249467bF7a586e4E29a9bf5a94"
+    },
+    {
+        "name": "wBTC",
+        "symbol": "wBTC",
+        "decimals": 8,
+        "address": "0xfEDd3a944FD01c8F2372109f9f652FBbD7Dbe4De"
+    },
+    {
+        "name": "BAT",
+        "symbol": "BAT",
+        "decimals": 18,
+        "address": "0xd91aC7a0e15b12B991a6b3AEF73b3bEe27452ea3"
+    },
+    {
+        "name": "Wrapped Ether",
+        "symbol": "WETH",
+        "decimals": 18,
+        "address": "0x955d1a5B5Fd356cf724FCe843Fb2a650fa926864"
+    }
+]

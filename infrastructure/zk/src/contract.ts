@@ -97,8 +97,7 @@ export async function deployL2ThroughL1({
     }
 
     await utils.spawn(
-        `yarn l2-contracts deploy-shared-bridge-on-l2-through-l1 ${args.join(' ')} ${
-            localLegacyBridgeTesting ? '--local-legacy-bridge-testing' : ''
+        `yarn l2-contracts deploy-shared-bridge-on-l2-through-l1 ${args.join(' ')}  --gas-price 10 ${localLegacyBridgeTesting ? '--local-legacy-bridge-testing' : ''
         } | tee deployL2.log`
     );
 
@@ -134,7 +133,7 @@ async function _deployL1(onlyVerifier: boolean): Promise<void> {
     await utils.confirmAction();
 
     const privateKey = process.env.DEPLOYER_PRIVATE_KEY;
-    const args = [privateKey ? `--private-key ${privateKey}` : '', onlyVerifier ? '--only-verifier' : ''];
+    const args = [privateKey ? `--private-key ${privateKey}` : '', onlyVerifier ? '--only-verifier' : '', `--gas-price 10`];
 
     // In the localhost setup scenario we don't have the workspace,
     // so we have to `--cwd` into the required directory.
@@ -221,10 +220,12 @@ export async function registerHyperchain({
     await utils.confirmAction();
 
     const privateKey = process.env.GOVERNOR_PRIVATE_KEY;
+    console.log("hyperchain deployer private key:", privateKey)
     const args = [
         privateKey ? `--private-key ${privateKey}` : '',
         baseTokenName ? `--base-token-name ${baseTokenName}` : '',
-        deploymentMode == DeploymentMode.Validium ? '--validium-mode' : ''
+        deploymentMode == DeploymentMode.Validium ? '--validium-mode' : '',
+        `--gas-price 10`
     ];
     await utils.spawn(`yarn l1-contracts register-hyperchain ${args.join(' ')} | tee registerHyperchain.log`);
     const deployLog = fs.readFileSync('registerHyperchain.log').toString();
